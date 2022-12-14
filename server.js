@@ -3,9 +3,7 @@ const mongoose = require("mongoose")
 const bodyParser = require("body-parser")
 const path = require("path")
 var passport = require("passport")
-// var authenticate = require("./authenticate")
-var config = require('./config/keys.js');
-
+var authenticate = require("./authenticate")
 
 // Loading routers
 const bookRouter = require("./routes/api/bookRouter")
@@ -28,7 +26,7 @@ app.use(function (req, res, next) {
 app.use(bodyParser.json())
 
 // DB config
-const mongoURI = config.mongoURI
+const mongoURI = require("./config/keys").mongoURI
 
 // Connect to mongo
 mongoose
