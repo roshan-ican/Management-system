@@ -22,15 +22,13 @@ app.use(function(req, res, next) {
 
 });
 
-// app.use(express.static(path.join(__dirname, "./client/build")))
-// app.get("*", function (_, res) {
-//   res.sendFile(
-//     path.join(__dirname, "./client/build/index.html"),
-//     function (err) {
-//       res.status(500).send(err)
-//     }
-//   )
-// })
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/*', function (req, res) {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
+
 
 // Bodyparser Middleware
 app.use(bodyParser.json());
