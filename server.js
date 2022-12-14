@@ -3,7 +3,7 @@ const mongoose=require('mongoose');
 const bodyParser=require('body-parser');
 const path=require('path');
 var passport = require('passport');
-var authenticate = require('./authenticate');
+// var authenticate = require('./authenticate');
 
 
 // Loading routers
