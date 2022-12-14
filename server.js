@@ -6,10 +6,31 @@ var passport = require('passport');
 var authenticate = require('./authenticate');
 
 
+
 // Loading routers
 const bookRouter = require('./routes/api/bookRouter');
 const userRouter = require('./routes/api/userRouter');
 const issueRouter = require('./routes/api/issueRouter');
+
+const uri = process.env.mongoURI;
+const client = new MongoClient(uri);
+
+app.get("/items/:my_item", async (req, res) => {
+    let my_item = req.params.my_item;
+    let item = await client.db("my_db")
+                .collection("my_collection")
+                .findOne({my_item: my_item})
+
+    return res.json(item)
+})
+
+client.connect(err => {
+    if(err){ console.error(err); return false;}
+    // connection to mongo is successful, listen for requests
+    app.listen(PORT, () => {
+        console.log("listening for requests");
+    })
+});
 const app= express();
 
 app.use(function(req, res, next) {
