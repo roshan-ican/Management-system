@@ -3,7 +3,7 @@ import { Table } from 'reactstrap';
 import {Link} from 'react-router-dom';
 import Loading from './LoadingComponent.js';
 
-const fineRate=1;
+const fineRate=50;
 let totalFine=0;
 const allowedDays=15;
 function RenderIssue ({issue,i}) {
@@ -127,7 +127,7 @@ render(){
             <th>Name of Book</th>
             <th>ISBN number</th>
             <th>Issue Date</th>
-            <th>Return Deadline</th>
+            <th>Return Date</th>
             <th>Return status</th>
             <th>Fine (in Rs.)</th>
            </tr>
